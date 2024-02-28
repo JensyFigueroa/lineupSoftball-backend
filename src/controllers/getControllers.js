@@ -16,9 +16,29 @@ const getRoster = async (req, res) => {
   }
 };
 
-const getPets = async (req, res) => {
+const getPlayerId = async (req, res) => {
+  const _id = req.params._id
+
+  try {
+    const playerBD = await Roster.findOne({_id})
+    console.log(playerBD)
+
+    res.render('detailPlayer', {number:playerBD.number})
+
+  } catch (error) {
+    console.log(error)
+    // res.render('detailPlayer', {
+    //   firstName: playerBD.firstName,
+    //   lastName: playerBD.lastName,
+    //   error:true,
+    //   message: 'Id not exists'
+    // })
+  }
+}
+
+// const getPets = async (req, res) => {
   
-}; 
+// }; 
 
 /* const getRegularVerbs = (req, res) => {
   //   res.send('server started')
@@ -125,6 +145,7 @@ const updatePet = async (req, res) => {
 
 module.exports = {
   getRoster,
+  getPlayerId
 /*  getPets,
    getService,
   getPets,
