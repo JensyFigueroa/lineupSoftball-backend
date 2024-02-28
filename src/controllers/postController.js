@@ -35,7 +35,7 @@ const putUpdate = async (req, res) => {
     }
 
   } catch (error) {
-    console.log('Update error', error)
+    console.log('Update error', {error: error.message})
   }
 } 
 
