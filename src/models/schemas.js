@@ -20,7 +20,19 @@ const rosterSchema = new Schema({
     avg:Number
 })
 
+const loginSchema = new Schema({
+    userName:String,
+    firstName:String,
+    lastName:String,
+    password:String
+   
+})
+
 // Creando el modelo
 const Roster = mongoose.model('Roster', rosterSchema)
+const Login = mongoose.model('Login', loginSchema)
 
-module.exports = Roster
+module.exports = {
+    Roster,
+    Login
+}

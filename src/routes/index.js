@@ -6,6 +6,7 @@ const getRoutes = require('./getRoutes.js');
 const router = Router();
 
 // Configurar los routers
+router.use('/login',getRoutes)
 router.use('/players',getRoutes)
 router.use('/addplayers',getRoutes)
 // router.use('/players/',getRoutes)

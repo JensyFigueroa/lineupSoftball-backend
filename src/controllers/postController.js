@@ -1,4 +1,4 @@
-const Roster = require("../models/roster.js");
+const {Roster, Login} = require("../models/schemas.js");
 
 const postCreate = async (req, res) => {
   const body = req.body;
@@ -39,7 +39,25 @@ const putUpdate = async (req, res) => {
   }
 } 
 
+const postLogin = async (req, res) => {
+  const {userName, password} = req.body
+
+  try {
+    const user = await Login.findOne({userName})
+    
+    if (user.userName === userName && user.password === password) {
+      res.status(200).json({manager: user.name, message: 'Login successful'});
+    }else{
+      res.send({message: 'Incorrect credentials'})
+    }
+  } catch (error) {
+    console.log('Login error', {error: error.message})
+  }
+  
+}; 
+
 module.exports = {
   postCreate,
-  putUpdate
+  putUpdate,
+  postLogin
 };

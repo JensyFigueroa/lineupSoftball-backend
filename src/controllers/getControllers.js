@@ -1,4 +1,4 @@
-const Roster = require("../models/roster.js");
+const {Roster, Login} = require("../models/schemas.js");
 
 const getRoster = async (req, res) => {
   // res.send('Here getRegularVerbs')
@@ -35,6 +35,7 @@ const getPlayerId = async (req, res) => {
     // })
   }
 }
+
 
 // const getPets = async (req, res) => {
   
@@ -145,7 +146,7 @@ const updatePet = async (req, res) => {
 
 module.exports = {
   getRoster,
-  getPlayerId
+  getPlayerId,
 /*  getPets,
    getService,
   getPets,
