@@ -46,9 +46,9 @@ const postLogin = async (req, res) => {
     const user = await Login.findOne({userName})
     
     if (user.userName === userName && user.password === password) {
-      res.status(200).json({manager: user.name, message: 'Login successful'});
+      return res.status(200).json(user);
     }else{
-      res.send({message: 'Incorrect credentials'})
+      return res.status(401).json({message: 'Incorrect credentials'})
     }
   } catch (error) {
     console.log('Login error', {error: error.message})
