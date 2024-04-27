@@ -56,8 +56,37 @@ const postLogin = async (req, res) => {
   
 }; 
 
+const putAVG = async (req, res) => {
+  const _id = req.params._id
+  const body = req.body
+
+  console.log('postAVG',_id)
+
+  /* try {
+    const playerUpdate = await Roster.findByIdAndUpdate(_id, body, {useFindAndModify:false})
+
+    console.log(playerUpdate)
+
+    if (playerUpdate) {
+      res.json({
+        state:true,
+        message: 'It was modified correctly'
+      })  
+    } else {
+      res.json({
+        state:false,
+        message: 'It was not modified correctly'
+      })
+    }
+
+  } catch (error) {
+    console.log('Update error', {error: error.message})
+  } */
+}
+
 module.exports = {
   postCreate,
   putUpdate,
-  postLogin
+  postLogin,
+  putAVG
 };

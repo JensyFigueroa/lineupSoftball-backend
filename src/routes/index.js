@@ -9,6 +9,7 @@ const router = Router();
 router.use('/login',getRoutes)
 router.use('/players',getRoutes)
 router.use('/addplayers',getRoutes)
+router.use('/cleanavgplayer',getRoutes)
 // router.use('/players/',getRoutes)
 // router.use('/pets', getRoutesPets)
 
